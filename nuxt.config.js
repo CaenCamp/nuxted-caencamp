@@ -1,4 +1,6 @@
 
+import path from 'path'
+
 export default {
   mode: 'universal',
   /*
@@ -34,7 +36,7 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss'
   ],
@@ -59,6 +61,14 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      // add frontmatter-markdown-loader
+      config.module.rules.push(
+        {
+          test: /\.md$/,
+          include: path.resolve(__dirname, 'markdown'),
+          loader: 'frontmatter-markdown-loader'
+        }
+      )
     }
   }
 }
