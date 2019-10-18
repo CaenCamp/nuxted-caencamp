@@ -7,6 +7,7 @@
 ``` bash
 # install dependencies
 $ npm run install
+$ bash update_md.sh
 
 # serve with hot reload at localhost:3000
 $ npm run dev
